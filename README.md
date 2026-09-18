@@ -22,7 +22,7 @@ npm run build
 3. 开启“开发者模式”。
 4. 选择“加载已解压的扩展程序”，选择解压后的 `dist/` 目录。
 
-也可以直接下载 GitHub Releases 中的 `json-lens-extension.zip`，解压后加载其中的扩展目录。
+也可以直接下载 [最新 Release 扩展包](https://github.com/ives22/json-lens/releases/latest/download/json-lens-extension.zip)。压缩包根目录已经包含 `manifest.json`，解压后直接选择解压目录加载即可。
 
 ### 从源码开发
 
