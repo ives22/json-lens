@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "JSON Lens",
+  "description": "本地 JSON 格式化、转换与检查工具",
+  "version": "0.1.0",
+  "permissions": ["contextMenus", "storage"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "打开 JSON Lens"
+  },
+  "commands": {
+    "open-json-lens": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+J",
+        "mac": "MacCtrl+Shift+J"
+      },
+      "description": "打开 JSON Lens"
+    }
+  }
+}
