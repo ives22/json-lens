@@ -1,4 +1,5 @@
-const menuId = 'json-lens-selection'
+const selectionMenuId = 'json-lens-selection'
+const pageMenuId = 'json-lens-page'
 const pendingKey = 'pendingInput'
 
 function openTool() {
@@ -8,15 +9,21 @@ function openTool() {
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.removeAll().then(() => {
     chrome.contextMenus.create({
-      id: menuId,
-      title: '用 JSON Lens 打开',
+      id: selectionMenuId,
+      title: '用 JSON Lens 打开选中内容',
       contexts: ['selection'],
+    })
+    chrome.contextMenus.create({
+      id: pageMenuId,
+      title: '打开 JSON Lens',
+      contexts: ['page'],
     })
   })
 })
 
 chrome.contextMenus.onClicked.addListener(async (info) => {
-  if (info.menuItemId !== menuId || !info.selectionText) return
+  if (info.menuItemId === pageMenuId) return openTool()
+  if (info.menuItemId !== selectionMenuId || !info.selectionText) return
   await chrome.storage.session.set({ [pendingKey]: info.selectionText })
   openTool()
 })
